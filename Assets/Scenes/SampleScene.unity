@@ -165,6 +165,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!70 &106054879
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -41624,6 +41625,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!70 &1758877131
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -42130,6 +42132,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &2055957904
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -42247,7 +42250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1122242138158022044, guid: 340f123d09a7a4542b5d85746ebc969b, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player!
       objectReference: {fileID: 0}
     - target: {fileID: 1122242138158022044, guid: 340f123d09a7a4542b5d85746ebc969b, type: 3}
       propertyPath: m_Layer
