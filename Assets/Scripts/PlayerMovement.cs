@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider2D  myBodycollider2D;
     float gravityStart;
     public bool isGrounded;
+    bool isAlive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -27,20 +28,24 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isAlive) { return; }
         Run();
         flipFace();
         climbingLadder();
         myAnimator.SetFloat("yVelocity", myrigidbody2D.velocity.y);
+        Die();
     }
     void OnMove(InputValue value)
     {
+        if (!isAlive) { return; }
         moveInput = value.Get<Vector2>();
         Debug.Log(moveInput);
     }
 
     void OnJump(InputValue value)
     {
-        if(value.isPressed && myBodycollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (!isAlive) { return; }
+        if (value.isPressed && myBodycollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             
             myrigidbody2D.velocity += new  Vector2(0f, jumpSpeed);
@@ -73,6 +78,16 @@ public class PlayerMovement : MonoBehaviour
         }
         
     }
+    void Die()
+    {
+        if (myBodycollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        {
+            isAlive = false;
+            myAnimator.SetTrigger("Die");
+            myrigidbody2D.velocity += new Vector2(0f, jumpSpeed);
+            myBodycollider2D.isTrigger = true;
+        }
+    }
     void climbingLadder()
     {
 
@@ -80,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector2 myvelocity = new Vector2(myrigidbody2D.velocity.x, moveInput.y * climbSpeed);
             myrigidbody2D.velocity = myvelocity;
-            myrigidbody2D.gravityScale = 0;
+            myrigidbody2D.gravityScale = 0; 
         }
         else myrigidbody2D.gravityScale = gravityStart;
         
