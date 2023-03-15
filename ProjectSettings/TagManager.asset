@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - enemy
+  - gate
   layers:
   - Default
   - TransparentFX
@@ -18,9 +19,9 @@ TagManager:
   - Climbing
   - Background
   - Enemy
-  - 
-  - 
-  - 
+  - Trap
+  - Bullets
+  - Gate
   - 
   - 
   - 
@@ -48,6 +49,9 @@ TagManager:
     locked: 0
   - name: platform
     uniqueID: 908239273
+    locked: 0
+  - name: Gate
+    uniqueID: 1210635257
     locked: 0
   - name: trap
     uniqueID: 3560425709

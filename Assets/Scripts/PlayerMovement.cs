@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     float gravityStart;
     public bool isGrounded;
     bool isAlive = true;
+    public GameObject bullets;
+    public GameObject gun;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         if (value.isPressed && myBodycollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             
-            myrigidbody2D.velocity += new  Vector2(0f, jumpSpeed);
+            myrigidbody2D.velocity = new  Vector2(0f, jumpSpeed);
            
                 myAnimator.SetBool("Jump", true);  
             
@@ -80,12 +82,13 @@ public class PlayerMovement : MonoBehaviour
     }
     void Die()
     {
-        if (myBodycollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        if (myBodycollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy","Trap")))
         {
             isAlive = false;
             myAnimator.SetTrigger("Die");
-            myrigidbody2D.velocity += new Vector2(0f, jumpSpeed);
+            myrigidbody2D.velocity = new Vector2(20f, 20f);
             myBodycollider2D.isTrigger = true;
+            
         }
     }
     void climbingLadder()
@@ -99,6 +102,15 @@ public class PlayerMovement : MonoBehaviour
         }
         else myrigidbody2D.gravityScale = gravityStart;
         
+    }
+
+    void OnFire(InputValue value)
+    {
+        if(!isAlive) { return; }
+        if(value.isPressed)
+        {
+            Instantiate(bullets,gun.transform.position , bullets.transform.rotation);   
+        }
     }
 }
 

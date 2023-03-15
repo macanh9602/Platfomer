@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3229018776558422637}
   - component: {fileID: 3229018776558422636}
   - component: {fileID: -1136108460902007531}
-  m_Layer: 0
+  - component: {fileID: 5033923471394950488}
+  m_Layer: 11
   m_Name: Shit(trap)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,3 +107,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &5033923471394950488
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3229018776558422627}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.9, y: 1.552}
+    newSize: {x: 4.75, y: 3.88}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.95000005, y: -0.776}
+      - {x: -0.95000005, y: -0.18}
+      - {x: -0.38200003, y: 0.776}
+      - {x: 0.202, y: 0.776}
+      - {x: 0.95000005, y: -0.192}
+      - {x: 0.95000005, y: -0.772}
