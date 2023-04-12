@@ -104,12 +104,21 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    IEnumerator ResetShootAnimation()
+    {
+        yield return new WaitForSeconds(0.4f); // Chờ 0.4 giây trước khi thiết lập lại animation
+        myAnimator.SetBool("Shoot", false); // Đặt lại animation shoot
+    }
+
     void OnFire(InputValue value)
     {
-        if(!isAlive) { return; }
-        if(value.isPressed)
-        {
-            Instantiate(bullets,gun.transform.position , bullets.transform.rotation);   
+        if (!isAlive) { return; }
+        if (value.isPressed)
+        {   
+            myAnimator.SetBool("Shoot", true);
+            Instantiate(bullets, gun.transform.position, bullets.transform.rotation);
+            
+            StartCoroutine(ResetShootAnimation()); // Bắt đầu coroutine để đặt lại animation shoot
         }
     }
 }
