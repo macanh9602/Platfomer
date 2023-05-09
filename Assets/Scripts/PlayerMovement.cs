@@ -102,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
     void LoadScene1()
     {
         SceneManager.LoadScene(0);
+        Score.score = 0;
     }
     void climbingLadder()
     {

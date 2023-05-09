@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class HighScore : MonoBehaviour
@@ -18,5 +19,11 @@ public class HighScore : MonoBehaviour
     void Update()
     {
        
+    }
+    public void ResetHighScore()
+    {
+        Score.highScore = 0;
+        PlayerPrefs.SetInt("highScore", Score.highScore);
+        SceneManager.LoadScene(0);
     }
 }
