@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     bool isAlive = true;
     public GameObject bullets;
     public GameObject gun;
+    public AudioClip gunSound;
+    public AudioClip dieSound;
 
     // Start is called before the first frame update
     void Start()
@@ -88,8 +93,15 @@ public class PlayerMovement : MonoBehaviour
             myAnimator.SetTrigger("Die");
             myrigidbody2D.velocity = new Vector2(20f, 20f);
             myBodycollider2D.isTrigger = true;
-            
+            AudioSource.PlayClipAtPoint(dieSound, this.transform.position);
+
+            // Load scene 1 after a delay of 2 seconds
+            Invoke("LoadScene1", 2f);
         }
+    }
+    void LoadScene1()
+    {
+        SceneManager.LoadScene(0);
     }
     void climbingLadder()
     {
@@ -114,11 +126,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isAlive) { return; }
         if (value.isPressed)
-        {   
+        {
+            AudioSource.PlayClipAtPoint(gunSound, this.transform.position);
             myAnimator.SetBool("Shoot", true);
             Instantiate(bullets, gun.transform.position, bullets.transform.rotation);
             
             StartCoroutine(ResetShootAnimation()); // Bắt đầu coroutine để đặt lại animation shoot
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "coin") 
+        {
+            Score.score++;
         }
     }
 }

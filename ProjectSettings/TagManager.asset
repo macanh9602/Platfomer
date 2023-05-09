@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - enemy
   - gate
+  - coin
   layers:
   - Default
   - TransparentFX
@@ -64,6 +65,9 @@ TagManager:
     locked: 0
   - name: bouncing
     uniqueID: 2847152525
+    locked: 0
+  - name: coin
+    uniqueID: 1013994245
     locked: 0
   - name: enemy
     uniqueID: 1249993415
