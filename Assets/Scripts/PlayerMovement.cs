@@ -140,6 +140,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.tag == "coin") 
         {
             Score.score++;
+            Score.lastScore = Score.score;
+            Debug.Log(Score.lastScore);
         }
     }
 }

@@ -8,6 +8,7 @@ public class Score : MonoBehaviour
     public TMP_Text ScoreText;
     public static int score;
     public static int highScore;
+    public static int lastScore;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class Score : MonoBehaviour
             PlayerPrefs.SetInt("highScore", highScore);
 
         }
+        PlayerPrefs.SetInt("lastScore", lastScore);
 
 
     }

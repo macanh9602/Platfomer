@@ -34,7 +34,7 @@ namespace Pathfinding {
 
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () {
-			if (target != null && ai != null && target.position.x >=8 ) ai.destination = target.position;
+			if (target != null && ai != null && Vector3.Distance(transform.position, target.position) <= 10f) ai.destination = target.position;
 		}
 		
 	}
