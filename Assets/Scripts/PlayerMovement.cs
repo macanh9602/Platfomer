@@ -8,7 +8,9 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     //i dont mind
+
     [SerializeField] public float runSpeed = 10f;
     [SerializeField] public float jumpSpeed = 5f;
     [SerializeField] public float climbSpeed = 10f;
