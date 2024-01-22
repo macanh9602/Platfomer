@@ -1,3 +1,4 @@
+using Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,8 +33,9 @@ public class Bullets : MonoBehaviour
     {
         if(other.tag == "enemy")
         {
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<HealthSysterm>().OnDamage(20);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

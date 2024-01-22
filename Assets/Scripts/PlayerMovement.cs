@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject gun;
     public AudioClip gunSound;
     public AudioClip dieSound;
-
+    bool IsHorizontalMoving;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Run()
     {
-        bool IsHorizontalMoving = Mathf.Abs(myrigidbody2D.velocity.x) > 0;
+        IsHorizontalMoving = Mathf.Abs(myrigidbody2D.velocity.x) > 0;
         Vector2 myvelocity = new Vector2(moveInput.x * runSpeed, myrigidbody2D.velocity.y);
         myrigidbody2D.velocity = myvelocity;
         myAnimator.SetBool("IsRunning", IsHorizontalMoving);
@@ -112,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector2 myvelocity = new Vector2(myrigidbody2D.velocity.x, moveInput.y * climbSpeed);
             myrigidbody2D.velocity = myvelocity;
-            myrigidbody2D.gravityScale = 0;
+            //myrigidbody2D.gravityScale = 0;
         }
         else myrigidbody2D.gravityScale = gravityStart;
 

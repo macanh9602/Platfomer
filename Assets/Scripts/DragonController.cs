@@ -29,6 +29,6 @@ public class DragonController : MonoBehaviour
     }
     void flipFace()
     {
-        transform.localScale = new Vector2((Mathf.Sign(myRigidbody2D.velocity.x)), 1f);
+        transform.Find("Sprite").localScale = new Vector2((Mathf.Sign(myRigidbody2D.velocity.x)), 1f);
     }
 }
